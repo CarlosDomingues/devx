@@ -110,7 +110,7 @@ function Set-ExplorerConfiguration
 # Install-Scoop
 Install-LinuxTools
 Install-DevTools
-Install-Infra-Tools
-Set-ExplorerConfiguration
+Install-InfraTools
+# Set-ExplorerConfiguration
 
 
