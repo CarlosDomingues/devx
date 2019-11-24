@@ -62,7 +62,7 @@ function Install-LinuxTools
 # Installs programming languages and related
 # tools.
 ###################################################
-function Install-ProgrammingLanguages
+function Install-DeveloperTools
 {
   scoop install dotnet-sdk `
                 go `
@@ -82,7 +82,7 @@ function Install-ProgrammingLanguages
 # Installs cloud infrastructure related tools,
 # languages and frameworks.
 ###################################################
-function Install-Infra
+function Install-InfraTools
 {
   scoop install aws `
                 consul `
@@ -94,7 +94,8 @@ function Install-Infra
 }
 
 # Configure Windows Explorer to show file
-# extensions and hidden files 
+# extension, hidden files and disable 
+# path limits.
 ###################################################
 function Set-ExplorerConfiguration
 {
@@ -106,8 +107,10 @@ function Set-ExplorerConfiguration
   sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
 }
 
-
-
-
+Install-Scoop
+Install-LinuxTools
+Install-DevTools
+Install-Infra-Tools
+Set-ExplorerConfiguration
 
 
