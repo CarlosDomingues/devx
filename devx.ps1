@@ -2,4 +2,81 @@
 
 # remote execution:
 #   Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://devx.carlo.sh')
-echo "Hello Script!"
+echo "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times."
+
+
+# Installs Scoop and aria2 for faster downloads.
+# Scoop is a package manager for Windows.
+# Packages are installed under ~/scoop
+###################################################
+function Install-Scoop
+{
+  Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
+  scoop install aria2 
+  
+}
+
+# Installs tools commonly present in most 
+# Linux distributions.
+###################################################
+function Install-LinuxTools
+{
+  scoop install bind `
+                curl `
+                coreutils `
+                dig `
+                dos2unix `
+                ffmpeg `
+                gawk `
+                gcc `
+                git `
+                gpg `
+                graphviz `
+                grep `
+                gzip `
+                iperf3 `
+                jq `
+                less `
+                make `
+                nano `
+                netcat `
+                nmap `
+                openssl `
+                pandoc `
+                png2jpeg `
+                pwsh `
+                sed `
+                shasum `
+                shellcheck `
+                ssh `
+                sudo `
+                tar `
+                telnet `
+                time `
+                touch `
+                unrar `
+                unzip `
+                vim `
+                wget `
+                which `
+                youtube-dl
+}
+
+# Configure Windows Explorer to show file
+# extensions and hidden files 
+###################################################
+function Set-ExplorerConfiguration
+{
+  $key = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+  Set-ItemProperty $key Hidden 1
+  Set-ItemProperty $key HideFileExt 0
+  Set-ItemProperty $key ShowSuperHidden 1
+  Stop-Process -processname explorer
+  sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
+}
+
+
+
+
+
+
