@@ -4,7 +4,6 @@
 #   Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://devx.carlo.sh')
 echo "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times."
 
-
 # Installs Scoop and aria2 for faster downloads.
 # Scoop is a package manager for Windows.
 # Packages are installed under ~/scoop
@@ -22,13 +21,13 @@ function Install-Scoop
 function Install-LinuxTools
 {
   scoop install bind `
+                cacert `
                 curl `
                 coreutils `
                 dig `
                 dos2unix `
                 ffmpeg `
                 gawk `
-                gcc `
                 git `
                 gpg `
                 graphviz `
@@ -37,10 +36,8 @@ function Install-LinuxTools
                 iperf3 `
                 jq `
                 less `
-                make `
                 nano `
                 netcat `
-                nmap `
                 openssh `
                 openssl `
                 pandoc `
@@ -60,6 +57,40 @@ function Install-LinuxTools
                 wget `
                 which `
                 youtube-dl
+}
+
+# Installs programming languages and related
+# tools.
+###################################################
+function Install-ProgrammingLanguages
+{
+  scoop install dotnet-sdk `
+                go `
+                hadolint `
+                leiningen `
+                gcc `
+                make `
+                nodejs `
+                nuget `
+                python `
+                rustup `
+                sbt `
+                shellcheck `
+                shfmt
+}
+
+# Installs cloud infrastructure related tools,
+# languages and frameworks.
+###################################################
+function Install-Infra
+{
+  scoop install aws `
+                consul `
+                nomad `
+                packer `
+                terraform `
+                terragrunt `
+                vault
 }
 
 # Configure Windows Explorer to show file
