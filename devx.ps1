@@ -41,6 +41,7 @@ function Install-LinuxTools
                 nano `
                 netcat `
                 nmap `
+                openssh `
                 openssl `
                 pandoc `
                 png2jpeg `
@@ -48,7 +49,6 @@ function Install-LinuxTools
                 sed `
                 shasum `
                 shellcheck `
-                ssh `
                 sudo `
                 tar `
                 telnet `
