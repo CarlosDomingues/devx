@@ -90,3 +90,16 @@ Set-ItemProperty $key HideFileExt 0
 Set-ItemProperty $key ShowSuperHidden 1
 Stop-Process -processname explorer
 sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
+
+
+# Sets up cmder, along with its related,
+# extensions and themes.
+###################################################
+Install-PackageProvider -Force -Name NuGet -Scope CurrentUser
+Install-Module -AllowClobber -Force posh-git -Scope CurrentUser
+Install-Module -Force Oh-my-posh -Scope CurrentUser
+if (!(Test-Path -Path $PROFILE)) {New-Item -Type File -Path $Profile -Force}
+Import-Module posh-git
+Import-Module oh-my-posh
+New-Item -ItemType Directory -Force -Path $ThemeSettings.MyThemesLocation
+
