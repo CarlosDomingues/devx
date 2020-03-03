@@ -2,7 +2,7 @@
 
 # remote execution:
 #   Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://devx.carlo.sh')
-echo "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times."
+echo "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times." -ForegroundColor Green
 
 # Installs Scoop, aria2 for faster downloads and
 # Git as a dependecy for several packages.
@@ -74,6 +74,7 @@ scoop install dotnet-sdk `
 # languages and frameworks.
 ###################################################
 scoop install aws `
+              azure-cli `
               consul `
               nomad `
               packer `
@@ -92,7 +93,6 @@ Set-ItemProperty $key ShowSuperHidden 1
 Stop-Process -processname explorer
 sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
 
-
 # Sets up cmder, along with its related,
 # extensions and themes.
 ###################################################
@@ -104,3 +104,24 @@ Import-Module posh-git
 Import-Module oh-my-posh
 New-Item -ItemType Directory -Force -Path $ThemeSettings.MyThemesLocation
 
+
+# Install better command line fonts
+###################################################
+scoop bucket add nerd-fonts
+sudo scoop install Meslo-NF
+
+# Create common directories
+###################################################
+mkdir -Force ~/code
+mkdir -Force ~/.aws
+
+# Create ssh keys for Gitlab
+###################################################
+mkdir -Force ~/.ssh
+ssh-keygen -b 2048 -t rsa -f "${HOME}/.ssh/gitlab-${env:COMPUTERNAME}" -q -N '""'
+Add-Content ${HOME}/.ssh/config "Host gitlab.com`n  IdentityFile ~/.ssh/gitlab-${env:COMPUTERNAME}"
+
+# Create ssh keys for Github
+###################################################
+ssh-keygen -b 2048 -t rsa -f "${HOME}/.ssh/github-${env:COMPUTERNAME}" -q -N '""'
+Add-Content ${HOME}/.ssh/config "Host github.com`n  IdentityFile ~/.ssh/github-${env:COMPUTERNAME}"
