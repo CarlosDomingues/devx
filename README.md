@@ -4,7 +4,7 @@ Automated personal dev environment setup for Windows 10 machines.
 On a non-administrative `PowerShell` instance:
 
 ```PowerShell
-Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+Set-ExecutionPolicy -Force RemoteSigned -scope CurrentUser
 iwr -useb devx.carlo.sh | iex
 ```
 
