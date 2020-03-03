@@ -4,6 +4,11 @@
 #   Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://devx.carlo.sh')
 echo "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times." -ForegroundColor Green
 
+# Remove PowerShell aliases. 
+###################################################
+remove-item alias:curl
+remove-item alias:wget
+
 # Installs Scoop, aria2 for faster downloads and
 # Git as a dependecy for several packages.
 # Scoop is a package manager for Windows.
