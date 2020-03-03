@@ -4,12 +4,13 @@
 #   Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://devx.carlo.sh')
 echo "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times."
 
-# Installs Scoop and aria2 for faster downloads.
+# Installs Scoop, aria2 for faster downloads and
+# Git as a dependecy for several packages.
 # Scoop is a package manager for Windows.
 # Packages are installed under ~/scoop
 ##################################################
 Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
-scoop install aria2 
+scoop install aria2 git
 
 # Installs tools commonly present in most 
 # Linux distributions.
