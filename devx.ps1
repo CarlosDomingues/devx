@@ -2,7 +2,7 @@
 
 # remote execution:
 #   Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://devx.carlo.sh')
-echo "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times." -ForegroundColor Green
+Write-Host "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times." -ForegroundColor Green
 
 # Remove PowerShell aliases. 
 ###################################################
