@@ -108,7 +108,9 @@ if (!(Test-Path -Path $PROFILE)) {New-Item -Type File -Path $Profile -Force}
 Import-Module posh-git
 Import-Module oh-my-posh
 New-Item -ItemType Directory -Force -Path $ThemeSettings.MyThemesLocation
-
+$dir=$ThemeSettings.MyThemesLocation
+wget --directory-prefix=$dir https://raw.githubusercontent.com/CarlosDomingues/devx/master/PoshGitTheme.psm1
+Add-Content $Profile "Import-Module posh-git`nImport-Module oh-my-posh`nremove-item alias:curl`nremove-item alias:wget`nSet-Theme PoshGitTheme"
 
 # Install better command line fonts
 ###################################################
