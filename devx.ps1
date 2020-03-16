@@ -138,6 +138,6 @@ Add-Content ${HOME}/.ssh/config "Host github.com`n  IdentityFile ~/.ssh/github-$
 ###################################################
 scoop install cmder
 $CmderPath=scoop info cmder | awk '/Installed/{getline; print}' | sed -e 's/^[ \t]*//'
-wget --directory-prefix="$CmderPath\vendor\conemu-maximus5\ConEmu.xml" https://raw.githubusercontent.com/CarlosDomingues/devx/master/ConEmu.xml
+wget --directory-prefix="$CmderPath\vendor\conemu-maximus5\" https://raw.githubusercontent.com/CarlosDomingues/devx/master/ConEmu.xml
 
 
