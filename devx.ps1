@@ -140,4 +140,6 @@ scoop install cmder
 $CmderPath=scoop info cmder | awk '/Installed/{getline; print}' | sed -e 's/^[ \t]*//'
 wget --directory-prefix="$CmderPath\vendor\conemu-maximus5\" https://raw.githubusercontent.com/CarlosDomingues/devx/master/ConEmu.xml
 
-
+# Install common Python libs
+###################################################
+pip install pypyp
