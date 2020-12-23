@@ -133,6 +133,14 @@ Add-Content ${HOME}/.ssh/config "Host gitlab.com`n  IdentityFile ~/.ssh/gitlab-$
 ssh-keygen -b 2048 -t rsa -f "${HOME}/.ssh/github-${env:COMPUTERNAME}" -q -N '""'
 Add-Content ${HOME}/.ssh/config "Host github.com`n  IdentityFile ~/.ssh/github-${env:COMPUTERNAME}"
 
+# Add keys to the ssh agent
+###################################################
+ sudo Set-Service ssh-agent -StartupType Automatic
+ Start-Service ssh-agent
+ Get-Service ssh-agent
+ ssh-add $HOME/.ssh/gitlab-${env:COMPUTERNAME}"
+ ssh-add $HOME/.ssh/github-${env:COMPUTERNAME}"
+  
 # Install and configure Cmder
 # Cmder is a terminal emulator for Windows
 ###################################################
