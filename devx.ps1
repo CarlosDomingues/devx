@@ -111,6 +111,7 @@ New-Item -ItemType Directory -Force -Path $ThemeSettings.MyThemesLocation
 $dir=$ThemeSettings.MyThemesLocation
 wget --directory-prefix=$dir https://raw.githubusercontent.com/CarlosDomingues/devx/master/PoshGitTheme.psm1
 Add-Content $Profile "Import-Module posh-git`nImport-Module oh-my-posh`nremove-item alias:curl`nremove-item alias:wget`nSet-Theme PoshGitTheme"
+Add-Content $Profile "`n$env:TZ=[Windows.Globalization.Calendar,Windows.Globalization,ContentType=WindowsRuntime]::New().GetTimeZone()"
 
 # Install better command line fonts
 ###################################################
