@@ -9,3 +9,8 @@ iwr -useb devx.carlo.sh | iex
 ```
 
 You will be prompted for your credentials several times during the proccess. 
+
+## TODO
+
+* Make the script immutable
+* Add CI/CD
