@@ -139,8 +139,8 @@ Add-Content ${HOME}/.ssh/config "Host github.com`n  IdentityFile ~/.ssh/github-$
  sudo Set-Service ssh-agent -StartupType Automatic
  Start-Service ssh-agent
  Get-Service ssh-agent
- ssh-add $HOME/.ssh/gitlab-${env:COMPUTERNAME}"
- ssh-add $HOME/.ssh/github-${env:COMPUTERNAME}"
+ ssh-add $HOME/.ssh/gitlab-${env:COMPUTERNAME}
+ ssh-add $HOME/.ssh/github-${env:COMPUTERNAME}
   
 # Install and configure Cmder
 # Cmder is a terminal emulator for Windows
@@ -149,6 +149,15 @@ scoop install cmder
 $CmderPath=scoop info cmder | awk '/Installed/{getline; print}' | sed -e 's/^[ \t]*//'
 wget --directory-prefix="$CmderPath\vendor\conemu-maximus5\" https://raw.githubusercontent.com/CarlosDomingues/devx/master/ConEmu.xml
 
-# Install common Python libs
+# Setup WSL 2 + Ubuntu 20.04 LTS
 ###################################################
-pip install pypyp
+sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile ~/Ubuntu2004.zip -UseBasicParsing
+Expand-Archive ~/Ubuntu2004.zip ~/Ubuntu2004
+ ~/Ubuntu2004/ubuntu2004.exe
+ wsl --setdefault Ubuntu-20.04
+ ~/Ubuntu2004/ubuntu2004.exe run 'echo \"carlos ALL=(ALL:ALL) NOPASSWD:ALL\" | sudo tee --append /etc/sudoers'
+ ~/Ubuntu2004/ubuntu2004.exe run 'sudo apt-get update --yes && sudo apt-get upgrade --yes && mkdir --parents ~/code'
+New-Item -ItemType HardLink -Path C:\ProgramData\Microsoft\Windows\Start Menu\Programs -Value ~/Ubuntu2004/ubuntu2004.exe # Not working, fix 
+
+
