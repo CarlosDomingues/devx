@@ -61,12 +61,6 @@ sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 
 ###################################################
 mkdir -Force ~/code
 
-# Create ssh keys for Gitlab
-###################################################
-mkdir -Force ~/.ssh
-ssh-keygen -b 2048 -t rsa -f "${HOME}/.ssh/gitlab-${env:COMPUTERNAME}" -q -N '""'
-Add-Content ${HOME}/.ssh/config "Host gitlab.com`n  IdentityFile ~/.ssh/gitlab-${env:COMPUTERNAME}"
-
 # Create ssh keys for Github
 ###################################################
 ssh-keygen -b 2048 -t rsa -f "${HOME}/.ssh/github-${env:COMPUTERNAME}" -q -N '""'
