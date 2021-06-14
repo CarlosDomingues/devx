@@ -46,35 +46,6 @@ scoop install bind `
               wget `
               which
 
-# Installs programming languages and related
-# tools.
-###################################################
-scoop install dotnet-sdk `
-              go `
-              hadolint `
-              leiningen `
-              gcc `
-              make `
-              nodejs `
-              nuget `
-              python `
-              rustup `
-              sbt `
-              shellcheck `
-              shfmt
-
-# Installs cloud infrastructure related tools,
-# languages and frameworks.
-###################################################
-scoop install aws `
-              azure-cli `
-              consul `
-              nomad `
-              packer `
-              terraform `
-              terragrunt `
-              vault
-
 # Configure Windows Explorer to show file
 # extension, hidden files and disable 
 # path limits.
