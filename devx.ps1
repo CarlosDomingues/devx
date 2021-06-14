@@ -73,13 +73,7 @@ Add-Content ${HOME}/.ssh/config "Host github.com`n  IdentityFile ~/.ssh/github-$
  Get-Service ssh-agent
  ssh-add $HOME/.ssh/gitlab-${env:COMPUTERNAME}
  ssh-add $HOME/.ssh/github-${env:COMPUTERNAME}
-  
-# Install and configure Cmder
-# Cmder is a terminal emulator for Windows
-###################################################
-scoop install cmder
-$CmderPath=scoop info cmder | awk '/Installed/{getline; print}' | sed -e 's/^[ \t]*//'
-wget --directory-prefix="$CmderPath\vendor\conemu-maximus5\" https://raw.githubusercontent.com/CarlosDomingues/devx/master/ConEmu.xml
+ 
 
 # Setup WSL 2 + Ubuntu 20.04 LTS
 ###################################################
