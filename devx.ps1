@@ -24,11 +24,8 @@ scoop install bind `
               cacert `
               curl `
               coreutils `
-              dig `
               dos2unix `
-              ffmpeg `
               gawk `
-              git `
               gpg `
               graphviz `
               grep `
@@ -37,15 +34,12 @@ scoop install bind `
               jq `
               less `
               nano `
-              netcat `
-              openssh `
               openssl `
               pandoc `
-              png2jpeg `
-              pwsh `
+              pshazz `
+              powersession ` 
               sed `
               shasum `
-              shellcheck `
               sudo `
               tar `
               telnet `
@@ -55,8 +49,7 @@ scoop install bind `
               unzip `
               vim `
               wget `
-              which `
-              youtube-dl
+              which
 
 # Installs programming languages and related
 # tools.
