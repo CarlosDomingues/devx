@@ -60,7 +60,6 @@ sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 
 # Create common directories
 ###################################################
 mkdir -Force ~/code
-mkdir -Force ~/.aws
 
 # Create ssh keys for Gitlab
 ###################################################
