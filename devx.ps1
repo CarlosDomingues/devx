@@ -60,7 +60,6 @@ scoop install aws-copilot `
               wget `
               which
 
-              `
 # Configure Windows Explorer to show file
 # extension, hidden files and disable 
 # path limits.
