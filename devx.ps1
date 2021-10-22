@@ -10,31 +10,49 @@ Write-Host "Configuring Windows 10 and installing neat programs for software dev
 # Packages are installed under ~/scoop
 ##################################################
 Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
+scoop update
 scoop install aria2 git
 
 # Installs tools commonly present in most 
 # Linux distributions.
 ###################################################
-scoop install bind `
+scoop install aws-copilot `
+              azure-cli `
+              aws `
+              bind `
               cacert `
               curl `
               coreutils `
+              dig `
               dos2unix `
+              findutils `
               gawk `
+              gcc `
+              gdb `
+              gnupg `
               gpg `
               graphviz `
               grep `
               gzip `
+              hadolint `
               iperf3 `
               jq `
+              kubectl `
+              kubens `
               less `
+              mdcat `
               nano `
+              netcat `
+              nmap `
+              nvm `
               openssl `
               pandoc `
               pshazz `
-              powersession ` 
+              powersession `
+              pyenv `
               sed `
               shasum `
+              shellcheck `
               sudo `
               tar `
               telnet `
