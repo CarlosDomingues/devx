@@ -90,15 +90,3 @@ Add-Content ${HOME}/.ssh/config "Host github.com`n  IdentityFile ~/.ssh/github-$
  ssh-add $HOME/.ssh/github-${env:COMPUTERNAME}
  
 
-# Setup WSL 2 + Ubuntu 20.04 LTS
-###################################################
-sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile ~/Ubuntu2004.zip -UseBasicParsing
-Expand-Archive ~/Ubuntu2004.zip ~/Ubuntu2004
- ~/Ubuntu2004/ubuntu2004.exe
- wsl --setdefault Ubuntu-20.04
- ~/Ubuntu2004/ubuntu2004.exe run 'echo \"carlos ALL=(ALL:ALL) NOPASSWD:ALL\" | sudo tee --append /etc/sudoers'
- ~/Ubuntu2004/ubuntu2004.exe run 'sudo apt-get update --yes && sudo apt-get upgrade --yes && mkdir --parents ~/code'
-New-Item -ItemType HardLink -Path C:\ProgramData\Microsoft\Windows\Start Menu\Programs -Value ~/Ubuntu2004/ubuntu2004.exe # Not working, fix 
-
-
