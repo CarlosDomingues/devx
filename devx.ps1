@@ -13,8 +13,7 @@ Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.s
 scoop update
 scoop install aria2 git
 
-# Installs tools commonly present in most 
-# Linux distributions.
+# Installs common tools
 ###################################################
 scoop install aws-copilot `
               azure-cli `
@@ -27,8 +26,6 @@ scoop install aws-copilot `
               dos2unix `
               findutils `
               gawk `
-              gcc `
-              gdb `
               gnupg `
               gpg `
               graphviz `
@@ -43,7 +40,6 @@ scoop install aws-copilot `
               mdcat `
               nano `
               netcat `
-              nmap `
               nvm `
               openssl `
               pandoc `
@@ -64,6 +60,7 @@ scoop install aws-copilot `
               wget `
               which
 
+              `
 # Configure Windows Explorer to show file
 # extension, hidden files and disable 
 # path limits.
