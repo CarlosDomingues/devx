@@ -15,14 +15,17 @@ scoop install aria2 git
 
 # Installs common tools
 ###################################################
-scoop install aws-copilot `
-              azure-cli `
-              aws `
+scoop install `
+              1password-cli `
+              base64 `
               bind `
               cacert `
               curl `
               coreutils `
-              dig `
+              dagger `
+              dd `
+              diffutils `
+              direnv `
               dos2unix `
               findutils `
               gawk `
@@ -33,9 +36,16 @@ scoop install aws-copilot `
               gzip `
               hadolint `
               iperf3 `
+              jid `
               jq `
+              k3d `
+              kind `
+              kops `
+              kubeadm `
               kubectl `
+              kubectx `
               kubens `
+              latex `
               less `
               mdcat `
               nano `
@@ -46,6 +56,7 @@ scoop install aws-copilot `
               pshazz `
               powersession `
               pyenv `
+              python `
               sed `
               shasum `
               shellcheck `
@@ -57,6 +68,7 @@ scoop install aws-copilot `
               unrar `
               unzip `
               vim `
+              vimtutor `
               wget `
               which
 
