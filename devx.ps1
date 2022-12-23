@@ -54,7 +54,6 @@ scoop install `
               nvm `
               openssl `
               pandoc `
-              pshazz `
               powersession `
               pyenv `
               python `
