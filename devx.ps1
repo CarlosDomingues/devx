@@ -36,6 +36,7 @@ scoop install `
               gzip `
               hadolint `
               iperf3 `
+              gh `
               jid `
               jq `
               k3d `
