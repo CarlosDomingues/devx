@@ -4,6 +4,35 @@
 #   Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://devx.carlo.sh')
 Write-Host "Configuring Windows 10 and installing neat programs for software development. Heads up: this script will ask for administrative permissions a few times." -ForegroundColor Green
 
+# Install Dektop programs
+###################################################
+winget install -e --id AgileBits.1Password.Beta
+winget install -e --id AgileBits.1Password.CLI
+winget install -e --id Brave.Brave.Beta
+winget install -e --id Discord.Discord
+winget install -e --id Microsoft.AppInstallerFileBuilder
+winget install -e --id Microsoft.BingWallpaper
+winget install -e --id Microsoft.Git
+winget install -e --id Microsoft.GitCredentialManagerCore
+winget install -e --id GitHub.cli
+winget install -e --id GitHub.GitHubDesktop.Beta
+winget install -e --id Microsoft.MouseWithoutBorders
+winget install -e --id Microsoft.OpenSSH.Beta
+winget install -e --id Microsoft.PCManager
+winget install -e --id Microsoft.PerfView
+winget install -e --id Microsoft.Sysinternals.Desktops
+winget install -e --id Microsoft.Sysinternals.ProcessExplorer
+winget install -e --id Microsoft.Sysinternals.ProcessMonitor
+winget install -e --id Microsoft.VisualStudioCode.Insiders
+winget install -e --id Microsoft.WindowsTerminal.Preview
+winget install -e --id RedHat.Podman
+winget install -e --id RedHat.Podman-Desktop
+winget install -e --id Transmission.Transmission
+winget install -e --id Valve.Steam
+winget install -e --id VideoLAN.VLC 
+winget install -e --id Telegram.TelegramDesktop.Beta
+winget install -e --id WhatsApp.WhatsApp
+
 # Installs Scoop, aria2 for faster downloads and
 # Git as a dependecy for several packages.
 # Scoop is a package manager for Windows.
@@ -86,21 +115,3 @@ sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 
 # Create common directories
 ###################################################
 mkdir -Force ~/code
-
-# Create ssh keys for Github
-###################################################
-ssh-keygen -b 2048 -t rsa -f "${HOME}/.ssh/github-${env:COMPUTERNAME}" -q -N '""'
-Add-Content ${HOME}/.ssh/config "Host github.com`n  IdentityFile ~/.ssh/github-${env:COMPUTERNAME}"
-
-# Create ssh keys for GitLab
-###################################################
-ssh-keygen -b 2048 -t rsa -f "${HOME}/.ssh/gitlab-${env:COMPUTERNAME}" -q -N '""'
-Add-Content ${HOME}/.ssh/config "Host gitlab.com`n  IdentityFile ~/.ssh/gitlab-${env:COMPUTERNAME}"
-
-# Add keys to the ssh agent
-###################################################
- sudo Set-Service ssh-agent -StartupType Automatic
- Start-Service ssh-agent
- Get-Service ssh-agent
- ssh-add $HOME/.ssh/gitlab-${env:COMPUTERNAME}
- ssh-add $HOME/.ssh/github-${env:COMPUTERNAME}
